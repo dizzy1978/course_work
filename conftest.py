@@ -15,7 +15,7 @@ def browser(request):
     options.add_experimental_option('prefs', {'intl.accept_languages': browser_language})
     print("\nSTART CHROME BROWSER WITH LANG=", browser_language)
     browser = webdriver.Chrome(options=options)
-    browser.implicitly_wait(10)
+    #browser.implicitly_wait(10)
     yield browser
     print("\nQUIT BROWSER..")
     browser.quit()
