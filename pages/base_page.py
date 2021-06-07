@@ -1,3 +1,4 @@
+url = "http://selenium1py.pythonanywhere.com/catalogue/category/books_2/"
 
 class BasePage():
     def __init__(self, browser, url):
