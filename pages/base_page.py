@@ -3,7 +3,6 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import math
-import time
 
 class BasePage():
     def __init__(self, browser, url, timeout=10):
