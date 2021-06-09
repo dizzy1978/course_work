@@ -1,5 +1,3 @@
-import time
-
 from .base_page import BasePage
 from .locators import ProductPageLocators
 
@@ -32,8 +30,6 @@ class ProductPage(BasePage):
         login_link.click()
         gotlink = self.browser.current_url
         assert gotlink == "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/", "Wrong login URL!"
-
-
 
 
 
