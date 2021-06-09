@@ -31,5 +31,6 @@ class BasketPageLocators():
     BASKET_LINK = (
         By.CSS_SELECTOR, "#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs > span > a")
     BASKET_EMPTY = (By.CSS_SELECTOR, "#content_inner")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div > strong")
 
 
