@@ -7,7 +7,7 @@ class ProductPage(BasePage):
     def add_to_basket(self):
         button1 = self.browser.find_element(*ProductPageLocators.ADD_BUTTON)
         button1.click()
-        self.solve_quiz_and_get_code()
+        #self.solve_quiz_and_get_code()
 
     def control_added_label(self):
         actual_label = self.browser.find_element(*ProductPageLocators.ACTUAL_LABEL).text
@@ -26,5 +26,14 @@ class ProductPage(BasePage):
     def success_message_should_be_disappeared(self):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is not desappeared!"
+
+    def should_be_login_page(self):
+        login_link = self.browser.find_element(*ProductPageLocators.LOGIN_LINK)
+        login_link.click()
+        gotlink = self.browser.current_url
+        assert gotlink == "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/", "Wrong login URL!"
+
+
+
 
 
