@@ -1,6 +1,6 @@
 # pytest -v --tb=line --language=en test_product_page.py # Выводим только одну строку из лога каждого упавшего теста.
 import pytest
-
+from .pages.base_page import BasePage
 from .pages.product_page import ProductPage
 from .pages.basket_page import BasketPage
 
@@ -50,6 +50,7 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page.open()
     page.should_be_login_page()
 
+@pytest.mark.skip
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/the-city-and-the-stars_95/"
     page = BasketPage(browser, link)
@@ -57,5 +58,33 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     page.go_to_basket_page()
     page.check_empty_basket_main()
     page.should_not_be_success_message()
+
+class TestUserAddToBasketFromProductPage(BasePage):
+
+    @pytest.fixture(scope="class")
+    def setup(self):
+        print("\nstart browser for test suite..")
+
+
+
+
+
+
+
+    def test_user_cant_see_success_message(browser):
+        page = ProductPage(browser, link)
+        page.open()
+        page.should_not_be_success_message()
+
+    def test_user_can_add_product_to_basket(browser):
+        page = ProductPage(browser, link)
+        page.open()
+        page.add_to_basket()
+        page.control_added_label()
+        page.control_added_price()
+        page.should_not_be_success_message()
+        page.success_message_should_be_disappeared()
+
+
 
 
