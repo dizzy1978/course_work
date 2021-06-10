@@ -14,8 +14,6 @@ def test_guest_can_add_product_to_basket(browser):
     page.add_to_basket()
     page.control_added_label()
     page.control_added_price()
-    page.should_not_be_success_message()
-    page.success_message_should_be_disappeared()
 
 @pytest.mark.skip
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
